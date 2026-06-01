@@ -9,7 +9,7 @@ pluginManagement {
         if (flutterSdkPath == null) {
             flutterSdkPath = System.getenv("FLUTTER_ROOT") ?: System.getenv("FLUTTER_HOME")
         }
-        assert flutterSdkPath != null, "flutter.sdk not set in local.properties and FLUTTER_ROOT/FLUTTER_HOME not set"
+        assert flutterSdkPath != null, "flutter.sdk not set"
         return flutterSdkPath
     }()
 
@@ -24,8 +24,8 @@ pluginManagement {
 
 plugins {
     id "dev.flutter.flutter-plugin-loader" version "1.0.0"
-    id "com.android.application" version "8.1.0" apply false
-    id "org.jetbrains.kotlin.android" version "1.9.10" apply false
+    id "com.android.application" version "8.2.0" apply false
+    id "org.jetbrains.kotlin.android" version "2.0.0" apply false
 }
 
 include ":app"
