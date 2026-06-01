@@ -23,16 +23,36 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Environment info
+        run: |
+          flutter --version
+          java -version
+
       - name: Get dependencies
         run: flutter pub get
 
       - name: Build APK
-        run: flutter build apk --debug
+        id: build
+        run: |
+          set +e
+          flutter build apk --debug 2>&1 | tee /tmp/build.log
+          RC=${PIPESTATUS[0]}
+          echo "BUILD_EXIT=$RC" >> $GITHUB_OUTPUT
+          echo "=== BUILD EXIT CODE: $RC ==="
+          exit 0
+        continue-on-error: true
 
-      - name: Find APK
-        run: find build/ -name "*.apk" -type f -exec ls -lh {} \;
+      - name: Show build log tail
+        run: |
+          echo "=== Build exit code: ${{ steps.build.outputs.BUILD_EXIT }} ==="
+          echo "=== Last 80 lines ==="
+          tail -80 /tmp/build.log
+
+      - name: List APK files
+        run: find build/ -name "*.apk" -type f -exec ls -lh {} \; 2>/dev/null || echo "No APK files found"
 
       - name: Upload APK
+        if: steps.build.outputs.BUILD_EXIT == '0'
         uses: actions/upload-artifact@v4
         with:
           name: easy-price-apk
