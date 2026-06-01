@@ -1,0 +1,36 @@
+# Flutter
+.dart_tool/
+.packages
+build/
+*.iml
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Android
+android/app/build/
+android/.gradle/
+android/local.properties
+android/key.properties
+*.jks
+*.keystore
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Runner/GeneratedPluginRegistrant.*
+
+# Dependencies
+pubspec.lock
+
+# Test
+coverage/
+
+# Misc
+*.log
+*.pyc
+.env

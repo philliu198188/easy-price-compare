@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    启动画面背景 — 使用应用主色调 blue-500
+    如需自定义图标，可替换为 <bitmap> 或 <layer-list>
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/splash_background" />
+</layer-list>

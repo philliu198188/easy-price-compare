@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Android 12+ (API 31+) SplashScreen API 适配
+        windowSplashScreenBackground: 启动画面背景色
+        windowSplashScreenAnimatedIcon: 启动画面中心图标（可选，此处使用默认图标）
+        windowSplashScreenAnimationDuration: 动画时长（默认自动，无需显式设置）
+        postSplashScreenTheme: Splash 结束后转入的正常主题
+    -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowSplashScreenBackground">@color/splash_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/launch_background</item>
+        <item name="android:postSplashScreenTheme">@style/NormalTheme</item>
+    </style>
+
+    <!-- 必须保留 NormalTheme 定义，供 manifest 中 meta-data 引用 -->
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>
