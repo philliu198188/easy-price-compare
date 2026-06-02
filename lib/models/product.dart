@@ -107,4 +107,15 @@ class Product {
 
   /// 平台数量
   int get platformCount => prices.length;
+
+  /// 最低价格（同 minPrice，别名为 discover_page 兼容）
+  double? get lowestPrice => minPrice;
+
+  /// 原始价格（取第一个有 originalPrice 的 PricePoint）
+  double? get originalPrice {
+    for (final p in prices) {
+      if (p.originalPrice != null) return p.originalPrice;
+    }
+    return null;
+  }
 }
