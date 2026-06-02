@@ -241,7 +241,7 @@ class _ProductCard extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        '¥${product.lowestPrice.toStringAsFixed(2)}',
+                        '¥${product.lowestPrice?.toStringAsFixed(2) ?? "--"}',
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
